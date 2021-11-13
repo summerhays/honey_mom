@@ -4,7 +4,7 @@ og-title: The Full List in Chronological Order
 id: chrono_list
 ---
 {% assign modulo = 10 %}
-<p>All <a href="/ordered_list.html" class="nolink nohover default-cursor">{{ site.data.mom-csv.size }}</a> momisms in chronological order of identification (<a href=/list>in alphabetical order here</a>)</p>
+<p>All <a href="/ordered_list.html" class="nolink nohover default-cursor">{{ site.data.honey-mom-csv.size }}</a> momisms in chronological order of identification (<a href=/list>in alphabetical order here</a>)</p>
 <p>Click to see Mommentary, definitions (where known...), and some examples. If unavailable, <a href="/contribute.html">contribute one</a>.</p>
 <div class=center>
   <span><button class="randombtn color-triad-2 w3-round-large w3-border w3-ripple" onclick="openAll()">Open all</button>&nbsp;
@@ -13,7 +13,7 @@ id: chrono_list
 </div>
 <div class="center">
 	{% comment %}The code below is the numbered link at the top{% endcomment %}
-	{% assign ordering = site.data.mom-csv | sort: "order" %}
+	{% assign ordering = site.data.honey-mom-csv | sort: "order" %}
 
 
 {% assign counter = 0 %}{% for each in ordering %}

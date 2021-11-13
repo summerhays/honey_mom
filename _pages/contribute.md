@@ -5,7 +5,7 @@ id: contribute
 ---
 <br>
 
-[Alternate form link](https://docs.google.com/forms/d/e/1FAIpQLSdfmzsR2Z4hB9AG-CfEiPwZClB78tSY3SPVOWi4XbDCeGZQog/viewform){: target="_blank"}
+[Alternate form link](https://docs.google.com/forms/d/e/1FAIpQLSdAII7RljiI6nfzmeKIeFALwu_WmckX-eiN4oDEQe4VSqagEw/viewform){: target="_blank"}
 {: style="text-align: center;"}
 
 {% include contribute.html %}

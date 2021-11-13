@@ -1,10 +1,10 @@
-title: Momism of the Day (MOD)
-email: mom@summerhays.net
+title: Honey Momism of the Day (MOD)
+email: d@summerhays.net
 description: >- # this means to ignore newlines until "baseurl:"
-        All {{ site.data.mom-csv.size }} momisms, all in one place
+        All {{ site.data.honey-mom-csv.size }} momisms, all in one place
 keywords: momisms, mom, expressions
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://mom.summerhays.net" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://honeymom.summerhays.net" # the base hostname & protocol for your site, e.g. http://example.com
 # For testing
 # url: localhost:4000
 icon: /assets/images/confused-smiley.png
@@ -47,52 +47,12 @@ defaults:
 #   - vendor/ruby/
 
 
-page_gen-dirs: true # uncomment, if you prefer to generate named folders
-
-page_gen:
-  - data: 'mom-csv'
-    template: 'dictionary'
-    dir: 'fresh-dictionary'
-      #    name: 'order'
-    name_expr: record['order']
-    title: 'momism'
-      # og-description: 'definition'
-      #    extension: 'md'
-      #    
-      #  - data: 'pets'
-      #    template: 'pet'
-      #    name: 'pet_name'
-      #    dir: 'pets'
-      #
-      #  - index_files: false
-      #    data: 'books'
-      #    template: 'book'
-      #    name: 'title'
-      #    dir: 'all-books'
-      #    debug: true
-      #
-      #  - data: 'books'
-      #    template: 'book'
-      #    name: 'title'
-      #    dir: 'books-i-have-read'
-      #    filter: read  # read is a boolean value in the YML file
-      #
-      #  # read is a boolean value in the YML file, but I need to test for
-      #  # falsity (read: false). The field `filter` is no good and I need to
-      #  # use filter_conditions
-      #  - data: 'books'
-      #    template: 'book'
-      #    name: 'title'
-      #    dir: 'books-i-have-not-read'
-      #    filter_condition: "record['read'] == false"
-      #
-      #  - data: 'books'
-      #    template: 'book'
-      #    name: 'title'
-      #    dir: 'books-by-orwell'
-      #    filter_condition: "record['author'] == 'George Orwell'"
-      #
-      #  - data: 'hierarchy.people'
-      #    template: 'profile'
-      #    name: 'full_name'
-      #    dir: 'hierarchy'
+        # page_gen-dirs: true # uncomment, if you prefer to generate named folders
+        # 
+        # page_gen:
+        #   - data: 'honey-mom-csv'
+        #     template: 'dictionary'
+        #     dir: 'fresh-dictionary'
+        #       #    name: 'order'
+        #     name_expr: record['order']
+        #     title: 'momism'

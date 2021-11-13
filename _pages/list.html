@@ -3,16 +3,16 @@ title: <i class="fas fa-clipboard-list down_a_bit"></i>&nbsp;The Full List
 og-title: The Full List 
 id: list
 ---
-<p>All <a href="/list.html" class="nolink nohover default-cursor">{{ site.data.mom-csv.size }}</a> momisms in alphabetical order (in <a href=/ordered_list>chronological order of identification here</a>).</p>
+<p>All <a href="/list.html" class="nolink nohover default-cursor">{{ site.data.honey-mom-csv.size }}</a> momisms in alphabetical order (in <a href=/ordered_list>chronological order of identification here</a>).</p>
 <p>Click to see Mommentary, definitions (where known...) and examples. If unavailable, <a href="/contribute">contribute one</a>.</p>
-<p>Simulate conversation with our mother by hearing a <button class="randombtn color-triad-2 w3-round-large w3-border w3-ripple" onclick="randomMomism()">random momism</button></p>
+<p>Simulate conversation by hearing a <button class="randombtn color-triad-2 w3-round-large w3-border w3-ripple" onclick="randomMomism()">random momism</button></p>
 <div class=center>
   <span><button class="randombtn color-triad-2 w3-round-large w3-border w3-ripple" onclick="openAll()">Open all</button>&nbsp;
   <button class="randombtn color-triad-2 w3-round-large w3-border w3-ripple" onclick="closeAll()">Close all</button>&nbsp;
 <div>&nbsp;</div>
 </div>
 <div class="center">
-	{% assign alpha_order = site.data.mom-csv | order: "momism" %}
+	{% assign alpha_order = site.data.honey-mom-csv | order: "momism" %}
 	{% comment %}The code below is the alphabet link at the top{% endcomment %}
 {% assign counter = 0 %}{% for each in alpha_order %}{% assign nowslice = each.momism | slice: 0 %}{% if nowslice == "[" %}{% assign nowslice = each.momism | slice: 1 %}{% endif %}
    {% unless nowslice == abc %}{% assign abc = each.momism | slice: 0 %}{% if abc == "[" %}{% assign abc = each.momism | slice: 1 %}{% endif %}

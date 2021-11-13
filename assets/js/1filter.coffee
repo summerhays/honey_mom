@@ -53,7 +53,7 @@ for list,i in list_button
 `}`
 
 `function randomMomism() {`
-num = Math.floor(Math.random() * ({{ site.data.mom-csv.size }} - 1 + 1))
+num = Math.floor(Math.random() * ({{ site.data.honey-mom-csv.size }} - 1 + 1))
 randLink = '/list.html#momism_id' + num;
 window.open(randLink,"_self");
 x = document.getElementById("momism" + num); # The div

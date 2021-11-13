@@ -65,7 +65,7 @@ function closeAll() {
 }
 
 function randomMomism() {
-  var num = Math.floor(Math.random() * ({{ site.data.mom-csv.size }} - 1 + 1));
+  var num = Math.floor(Math.random() * ({{ site.data.honey-mom-csv.size }} - 1 + 1));
 	var randLink = '/list.html#momism_id' + num;
 	  window.open(randLink,"_self");
         var x = document.getElementById("momism" + num); // The div

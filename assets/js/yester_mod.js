@@ -1,14 +1,26 @@
 ---
 ---
 var allMomisms = [
-{% for each in site.data.mom-csv %} {momism: `{{ each.momism }}`,{% if each.definition %} definition: `{{ each.definition }}`,{% endif %}{% if each.example %} example: `{{ each.example }}`,{% endif %}{% if each.mommentary %} mommentary: `{{ each.mommentary }}`,{% endif %} momism_id: `{{ each.order }}`},{% endfor %}
+{% for each in site.data.honey-mom-csv %} {momism: `{{ each.momism }}`,{% if each.definition %} definition: `{{ each.definition }}`,{% endif %}{% if each.example %} example: `{{ each.example }}`,{% endif %}{% if each.mommentary %} mommentary: `{{ each.mommentary }}`,{% endif %} momism_id: `{{ each.order }}`},{% endfor %}
 ];
 
 var randomNum = [
-{% for each in site.data.randday %}{day: {{ each.day }}, rand: `{% comment %}
-
-	Random momisms aren't yet stored as integers, so this makes the string an integer. Then, if the momism ID for the day is greater than the number of momisms, it assigns the alternate momism
-	{% endcomment %}{% assign randy = each.rand | plus: 0 %}{% if randy > site.data.mom-csv.size %}{{ each.alt }}{% else %}{{ each.rand }}{% endif %}`}, {% endfor %}
+{% for each in site.data.randday %}
+        {% comment %}
+          Random momisms aren't yet stored as integers. 
+          "| plus: 0" makes the string an integer. 
+          Then, if the momism ID for the day is greater 
+          than the number of momisms, the if statement 
+          assigns an alternate momism
+	{% endcomment %}
+    {% assign randInteger = each.rand | plus: 0 %}
+    {% if randInteger > site.data.honey-mom-csv.size %}
+      {% assign randomMomism = each.alt %}
+    {% else %}
+      {% assign randomMomism = randInteger %}
+    {% endif %}
+  {day: {{ each.day }}, 
+  randomMomism: `{{ randomMomism }}`}, {% endfor %}
 ];
 
 var today=new Date();
@@ -25,7 +37,7 @@ const month = yesterday.toLocaleString('default', { month: 'long' });
 // setInterval(increase, 1000);
 // 
 // function increase() {
-//     if (i < {{ site.data.mom-csv.size }}) {
+//     if (i < {{ site.data.honey-mom-csv.size }}) {
 //       i++;
 //       x = i;
 //     }
@@ -50,9 +62,7 @@ function periodatEnd(str) {
 // var testdate = new Date(2020, 5, 1);
 // console.log(daysIntoYear(testdate));
 
-var x = daysIntoYear(today) - 2;
-
-var randforToday = randomNum[x];
+var randforToday = randomNum[daysIntoYear(today) - 2];
 //
 // var randforToday = {day: 1, rand: 1,}; // Definition & example
 // var randforToday = {day: 1, rand: 16,}; // Definition & mommentary
@@ -60,10 +70,10 @@ var randforToday = randomNum[x];
 var yesterday_date1 = (yesterday).toString().split(' ').splice(1,3).join(' ');
 var yesterday_date = month + " " + yesterday.getDate() + ", " + yesterday.getFullYear();
 
-var arrayFinal = allMomisms.find( ({ momism_id }) => momism_id == randforToday.rand);
+var arrayFinal = allMomisms.find( ({ momism_id }) => momism_id == randforToday.randomMomism);
 
 // Making these all into variables to be easier to handle:
-// var modFinal = allMomisms[randforToday.rand - 1].momism;
+// var modFinal = allMomisms[randforToday.randomMomism - 1].momism;
 var modFinal = arrayFinal.momism;
 var defFinal = periodatEnd(arrayFinal.definition);
 var exFinal = periodatEnd(arrayFinal.example);
