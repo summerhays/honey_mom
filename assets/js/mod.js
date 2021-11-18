@@ -13,11 +13,12 @@ var randomNum = [
           than the number of momisms, the if statement 
           assigns an alternate momism
 	{% endcomment %}
-    {% assign randInteger = each.rand | plus: 0 %}
-    {% if randInteger > site.data.honey-mom-csv.size %}
+    {% assign randomInteger = each.rand | plus: 0 %}
+    {% assign randomAlterate = each.alt | plus: 0 %}
+    {% if randomInteger > site.data.honey-mom-csv.size %}
       {% assign randomMomism = each.alt %}
     {% else %}
-      {% assign randomMomism = randInteger %}
+      {% assign randomMomism = each.rand %}
     {% endif %}
   {day: {{ each.day }}, 
   randomMomism: `{{ randomMomism }}`}, {% endfor %}

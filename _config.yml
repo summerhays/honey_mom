@@ -49,10 +49,10 @@ defaults:
 
         # page_gen-dirs: true # uncomment, if you prefer to generate named folders
         # 
-        # page_gen:
-        #   - data: 'honey-mom-csv'
-        #     template: 'dictionary'
-        #     dir: 'fresh-dictionary'
-        #       #    name: 'order'
-        #     name_expr: record['order']
-        #     title: 'momism'
+page_gen:
+  - data: 'honey-mom-csv'
+    template: 'dictionary'
+    dir: 'fresh-dictionary'
+      #    name: 'order'
+    name_expr: record['order']
+    title: 'momism'
