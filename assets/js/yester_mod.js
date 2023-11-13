@@ -1,8 +1,9 @@
 ---
 ---
 var allMomisms = [
-{% for each in site.data.honey-mom-csv %} {momism: `{{ each.momism }}`,{% if each.definition %} definition: `{{ each.definition }}`,{% endif %}{% if each.example %} example: `{{ each.example }}`,{% endif %}{% if each.mommentary %} mommentary: `{{ each.mommentary }}`,{% endif %} momism_id: `{{ each.order }}`},{% endfor %}
+{% for each in site.data.honey-mom-csv %} {momism: `{{ each.momism | smartify }}`,{% if each.definition %} definition: `{{ each.definition | smartify }}`,{% endif %}{% if each.example %} example: `{{ each.example | smartify }}`,{% endif %}{% if each.mommentary %} mommentary: `{{ each.mommentary | smartify }}`,{% endif %} momism_id: `{{ each.order }}`},{% endfor %}
 ];
+
 
 var randomNum = [
 {% for each in site.data.randday %}
@@ -70,7 +71,6 @@ var randforToday = randomNum[daysIntoYear(today) - 2];
 var yesterday_date1 = (yesterday).toString().split(' ').splice(1,3).join(' ');
 var yesterday_date = month + " " + yesterday.getDate() + ", " + yesterday.getFullYear();
 
-var arrayFinal = allMomisms.find( ({ momism_id }) => momism_id == randforToday.randomMomism);
 
 // Making these all into variables to be easier to handle:
 // var modFinal = allMomisms[randforToday.randomMomism - 1].momism;
@@ -82,6 +82,7 @@ var idFinal = arrayFinal.momism_id;
 var idFinalInteger = parseInt(idFinal, 10);
 var linkFinal = '/dictionary/' + idFinal;
 
+var arrayFinal = allMomisms.find( ({ momism_id }) => momism_id == randforToday.randomMomism);
 document.getElementById("randomMom").innerHTML = modFinal;
 if (typeof defFinal === 'undefined') {
   // document.getElementById("randomDefinition").style.display = "none";
